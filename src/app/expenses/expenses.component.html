@@ -1,0 +1,23 @@
+<table *ngIf="expensesList.length !=0">
+  <tr>
+    <th>Expenses Details</th>
+    <th>ExpensesAmount</th>
+  </tr>
+  <tr *ngFor="let iteam of expensesList; let i = index">
+    <td>{{iteam.expensesDetails}}</td>
+    <td>{{iteam.expensesAmount}}</td>
+  </tr>
+  <tr *ngIf="totalExpenses !=0">
+    <td>
+      <b>Total</b>
+    </td>
+    <td>
+      <b>{{totalExpenses}}</b>
+    </td>
+  </tr>
+</table>
+<form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+    <div><input placeholder="ExpensesAmount" type="number" formControlName="expensesAmount"></div>
+    <div><input placeholder="ExpensesDetails" type="text" formControlName="expensesDetails"></div>
+    <button type="submit">Add Expenses</button>
+</form>
